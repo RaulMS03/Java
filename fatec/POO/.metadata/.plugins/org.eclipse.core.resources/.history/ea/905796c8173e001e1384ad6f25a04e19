@@ -1,0 +1,37 @@
+package aula1Sandra;
+import java.util.Scanner;
+
+public class TestePessoas {
+    public static void main(String[]args) {
+        Pessoas p1 = new Pessoas(12, "Trozovo", "tresbaldo");
+        //Scanner entra = new Scanner(System.in);
+        Pessoas p = new Pessoas(p1);
+        
+        p.ImprimirPessoa();
+        
+        /*System.out.println("Insira os dados.");
+        System.out.println("Insira o id: ");
+        p.id = entra.nextInt();
+        entra.nextLine();
+        System.out.println("Insira o nome: ");
+        p.nome = entra.nextLine();
+        System.out.println("Insira o endereço: ");
+        p.endereco	= entra.nextLine();
+        p.ImprimirPessoa();
+        entra.close();*/
+    }
+}
+
+
+/*
+ *  System.out.println("Insira os dados.");
+        System.out.println("Insira o id: ");
+        p1.id = entra.nextInt();
+        entra.nextLine();
+        System.out.println("Insira o nome: ");
+        p1.nome = entra.nextLine();
+        System.out.println("Insira o endereço: ");
+        p1.endereco	= entra.nextLine();
+        p1.ImprimirPessoa();
+        entra.close();
+*/

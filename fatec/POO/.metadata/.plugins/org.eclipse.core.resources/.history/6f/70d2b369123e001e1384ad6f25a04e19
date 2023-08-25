@@ -1,0 +1,13 @@
+package aula1Sandra;
+
+public class Pessoas {
+	public int id;
+    public String nome;
+    public String endereco;
+
+    public void ImprimirPessoa() {
+        System.out.println("id: " + this.id);
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Endereco: " + this.endereco);
+    }
+}
