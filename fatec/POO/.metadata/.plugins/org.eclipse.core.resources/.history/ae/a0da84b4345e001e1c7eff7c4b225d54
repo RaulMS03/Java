@@ -1,0 +1,119 @@
+package codigo1;
+
+import java.text.NumberFormat;
+
+public abstract class Correio implements Frete{
+	// atributos
+	private String cep;
+	private String endereco;
+	private String descricao;
+	private double preco;
+	
+	// metodos getters
+	public String getCep() {
+		return this.cep;
+	}
+	
+	public String getEndereco() {
+		return this.endereco;
+	}
+	
+	public String getDescricao() {
+		return this.descricao;
+	}
+	
+	public double getPreco() {
+		return this.preco;
+	}
+	
+	// metodos setters
+	public void setCep(String cp) throws TratamentoErros {
+        if(cp.length() <= 8) {
+            for (int index = 0; index < cp.length(); index++) {
+                char caracterAtual = cp.charAt(index);
+                if (!Character.isDigit(caracterAtual)) {
+                    throw new TratamentoErros("O cep deve ser um número.");
+                } 
+                
+                if(cp.length() < 8) {
+                	throw new TratamentoErros("O cep deve ter apenas 8 digitos.");
+                }  		
+            }
+        } 
+        
+        if(cp.length() == 0) {
+        	throw new TratamentoErros("O cep deve ser escrito");
+        }
+        
+        if(cp.length() > 8) {
+        	throw new TratamentoErros("O cep deve ter apenas 8 digitos.");
+        }
+        
+        this.cep = cp;
+    }
+	
+	public void setEndereco(String end) throws TratamentoErros {
+		end = end.trim();
+		
+		if(end.length() >= 4) { 
+			for(int index = 0; index < end.length(); index++) {
+				char semNumero = end.charAt(index);
+				if(!Character.isLetter(semNumero)) {
+				throw new TratamentoErros("Apenas letras.");
+				}
+				if(Character.isWhitespace(semNumero)) {
+					throw new TratamentoErros("Apenas letras.");
+				}
+			}
+		}
+		
+		if(end.length() < 4) {
+			throw new TratamentoErros("Deve ser maior que 4 caracteres");
+		}
+		
+		if(end.length() > 30) {
+			throw new TratamentoErros("Deve ser menor que 30 caracteres");
+		}
+		this.endereco = end;
+	}
+	
+	public void setDescricao(String desc) throws TratamentoErros {
+		desc = desc.trim();
+		
+		if(desc.length() < 4) {
+			throw new TratamentoErros("A descrição deve ser maior que 4 caracteres");
+		}
+		
+		if(desc.length() > 30) {
+			throw new TratamentoErros("A descrição deve ser menor que 30 caracteres");
+		}
+		
+		this.descricao = desc;
+	}
+	
+	public void setPreco(double pr) throws TratamentoErros {
+		 if (pr <= 0)
+		      throw new TratamentoErros("O preço deve ser positivo");
+		 
+		 this.preco = pr;
+	}
+	
+	public void setPreco(String preco) throws TratamentoErros {
+	    try {
+	      setPreco(Double.parseDouble(preco));
+	    }
+	    catch (NumberFormatException nfe) {
+	      throw new TratamentoErros("O preço deve ser um número");
+	    }
+	  }
+	
+	public String toString() {
+	    NumberFormat nf = NumberFormat.getCurrencyInstance();
+	    
+	    return " (" + this.getClass().getName() + ") " + "CEP: " + cep  + ";" + " Endereço: " +
+	    endereco+ ";" + " Descrição: "  + descricao +  " - " + 
+	      nf.format(preco);
+	 }
+}
+	  
+

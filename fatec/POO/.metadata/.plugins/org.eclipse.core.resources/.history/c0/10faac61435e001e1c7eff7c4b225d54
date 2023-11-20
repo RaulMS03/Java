@@ -1,0 +1,51 @@
+package codigo2;
+import java.util.Scanner;
+
+public class VerificaAnimal {
+	public static void main(String[] args) {
+		Scanner ler = new Scanner(System.in);
+		Vacina[] vac = new Vacina[100];
+		
+		System.out.println("-------------------------------------------------");
+		System.out.println("-------------| Sistema de Vacinas! |-------------");
+		System.out.println("------------- | Qual o seu animal:|--------------");
+		System.out.println("-------------------------------------------------");
+		System.out.println("1 - Cachorro.");
+		System.out.println("2 - Gato.");
+		System.out.println("3 - Sair.");
+		System.out.println("-------------------------------------------------");
+		
+		int tipo = ler.nextInt();
+		/*
+		int idade = ler.nextInt();
+		double peso = ler.nextDouble();
+		double tamanho = ler.nextDouble();
+		String porte = ler.nextLine();*/
+		
+		if(tipo == 1) {
+			while(true) {
+				Animal ani = new Cachorro();
+				System.out.println("Digite o nome: ");
+				String nome = ler.nextLine();
+				ani.setNome(nome); 
+				ler.nextLine();
+				System.out.println("Digite a Idade: ");
+				ani.setIdade(idade);
+				ler.nextLine();
+				System.out.println("Digite o Peso: ");
+				ani.setPeso(peso);
+				ler.nextLine();
+				System.out.println("Digite a Tamanho: ");
+				ani.setTamanho(tamanho);
+				ler.nextLine();
+				System.out.println("Digite o Porte: ");
+				ani.setPorte(porte);
+				ler.nextLine();
+				ani.imprimirAnimal();
+			}
+		}
+		
+		ler.close();
+		
+	}
+}

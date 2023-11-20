@@ -6,4 +6,5 @@
  *
  */
 module PooAulas {
+	requires java.desktop;
 }

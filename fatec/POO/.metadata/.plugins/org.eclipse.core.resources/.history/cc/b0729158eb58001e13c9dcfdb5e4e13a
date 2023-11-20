@@ -1,0 +1,60 @@
+package aula3Sandra;
+
+public class Pessoas {
+	//atributos 
+	private String nome;
+	private String cpf;
+	private String rg;
+	
+	//construtor 
+	public Pessoas() {
+		this.nome = "Raul Abliblubli";
+		this.cpf = "123.456.678-9";
+		this.rg = "67.234.234-5";
+	}
+	
+	public Pessoas(String nm, String cp, String r) {
+		this.nome = nm;
+		this.cpf = cp;
+		this.rg = r;
+	}
+	
+	public Pessoas(Pessoas p) {
+		this.nome = p.nome;
+		this.cpf = p.cpf;
+		this.rg = p.rg;
+	}
+	
+	//get
+	public String getNome() {
+		return this.nome;
+	}
+	
+	public String getCpf() {
+		return this.cpf;
+	}
+	
+	public String getRg() {
+		return this.rg;
+	}
+	
+	//set 
+	public void setSaldoConta(String nm) {
+		this.nome = nm;
+	}
+	
+	public void setCpf(String cp) {
+		this.cpf = cp;
+	}
+	
+	public void setCpfConta(String r) {
+		this.rg = r;
+	}
+	
+	public void ImprimirPessoas() {
+		System.out.println("Nome: " + getNome());
+		System.out.println("CPF: " + getCpf());
+		System.out.println("RG: " + getRg());
+	}
+	
+}

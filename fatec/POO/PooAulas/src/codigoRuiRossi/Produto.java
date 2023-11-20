@@ -1,0 +1,114 @@
+package codigoRuiRossi;
+
+import java.text.NumberFormat;
+
+public abstract class Produto implements Tributavel {
+  private int codigo;
+  private String descricao;
+  private double preco;
+  
+  public int getCodigo() {
+    return codigo;
+  }
+  
+  public String getDescricao() {
+    return descricao;
+  }
+  
+  public double getPreco() {
+    return preco;
+  }
+  
+  public void setCodigo(int codigo) throws EDadoInvalido{
+    if (codigo <= 0)
+      throw new EDadoInvalido("O código deve ser positivo");
+    
+    this.codigo = codigo;
+  }
+  
+  public void setCodigo(String codigo) throws EDadoInvalido {
+    try {
+      setCodigo(Integer.parseInt(codigo));
+    }
+    catch (NumberFormatException nfe) {
+      throw new EDadoInvalido("O código deve ser um inteiro");
+    }
+  }
+  
+  public void setDescricao(String descricao) throws EDadoInvalido {
+    descricao = descricao.trim();
+    
+    if (descricao.length() < 2)
+      throw new EDadoInvalido("Descrição com menos de 2 caracteres");
+      
+    if (descricao.length() > 50)
+      throw new EDadoInvalido("Nome com mais de 50 caracteres");
+      
+    this.descricao = descricao;
+  }
+  
+  public void setPreco(double preco) throws EDadoInvalido {
+    if (preco <= 0)
+      throw new EDadoInvalido("O preço deve ser positivo");
+    
+    this.preco = preco;
+  }
+  
+  public void setPreco(String preco) throws EDadoInvalido {
+    try {
+      setPreco( Double.parseDouble(preco) );
+    }
+    catch (NumberFormatException nfe) {
+      throw new EDadoInvalido("O preço deve ser um número");
+    }
+  }
+  
+  public String toString() {
+    NumberFormat nf = NumberFormat.getCurrencyInstance();
+    return "Produto " + codigo + " (" + 
+      this.getClass().getName() + "): " + descricao +  " - " + 
+      nf.format(preco);
+  }
+}
+
+/*	Explicação: 
+ * 
+ * 	Na primeira linha temos uma importação da classe "NumberFormat" do pacote "java.text", que é usada para formatar números, 
+ *  incluindo a formatação de valores monetários.
+ *  
+ *  Começando o codigo, temos a declaração da classe "Produto" que é definida como um "abstract", isso significa que você não 
+ *  pode criar objetos diretamente a partir desta classe. Em vez disso, ela serve como uma classe base para outras classes 
+ *  concretas que estenderão "Produto". Alem disso, a classe "Produto" implementa a interface "Tributavel", o que significa que ela deve fornecer uma implementação 
+ *  para o método "calcularIcms()" definido na interface.
+ * 
+ *  Logo em seguida, temos nossos atributos definidos da classe "Produto", que são "codigo", "descricao" e "preco".
+ *  
+ *  Apos os atributos, declaramos os metodos "getters" para obter os valores dos campos privados da classe(Seu acesso é apenas leitura).
+ *  
+ *  O metodo "setCodigo(int codigo)" é um método "setter" que permite definir o valor do campo "codigo". Ele verifica se o código fornecido é 
+ *  positivo; caso contrário, lança uma exceção "EDadoInvalido" com uma mensagem de erro.
+ *  
+ *  Ja o metodo "setCodigo(String codigo)" é um método "setter" que recebe uma string como entrada e tenta convertê-la em um inteiro por via
+ *  "Integer.parseInt()". Se a conversão falhar (por exemplo, se a string não representar um número válido), ele lança uma exceção "EDadoInvalido"
+ *  com uma mensagem de erro.
+ *  
+ *  Os métodos "setDescricao" e "setPreco" têm um funcionamento semelhante, verificando a validade dos dados e lançando exceções "EDadoInvalido" 
+ *  em caso de erro. No caso do "setDescricao",verifica se a descrição é valida, se ela for menor que 2 caracteres e maior que 50 caracteres, uma exceção
+ *  com uma mensagem é apresentada. No caso do "setPreco" verifica se o preço é valido, se o campo de preço for preenchido por algo que nao seja um
+ *  numero e o metodo nao conseguir fazer a conversão, sera apresentado um erro com uma mensagem personalizada.
+ *  
+ *  O ultimo metodo "toString()" é uma sobrescrita do método "toString()" da classe "Object". Ele formata uma representação em string do objeto "Produto", 
+ *  incluindo o código, a classe do objeto (através de "this.getClass().getName()"), a descrição e o preço são formatados como moeda utilizando "NumberFormat". 
+ */
+
+
+
+/********************************************************************
+ * Este arquivo � parte integrante do livro identificado abaixo e � *
+ * protegido pela legisla��o que trata dos direitos autorais.       *
+ *                                                                  *
+ * T�tulo:  Programa��o de Computadores em Java                     *
+ * Autor:   Rui Rossi dos Santos                                    *
+ * Editora: NovaTerra Editora e Distribuidora Ltda.                 *
+ * Ano:     2014                                                    *
+ ********************************************************************/

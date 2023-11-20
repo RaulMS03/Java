@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class SistemaVendas {
 	public static void main(String[] args) {
 		Scanner entra = new Scanner(System.in);
-		Clientes cli = new Clientes(); // uso do get
+		Clientes cli = new Clientes(12, "ASAAA", "SAASAS", "asdads"); // uso do get
 		Pedidos ped = new Pedidos(); // uso do set
 		// construtor copia
 		Produtos p = new Produtos();

@@ -1,0 +1,9 @@
+package codigo1;
+
+public class Centro {
+	public int calcularFrete() {
+		if (super.getCep().indexOf(1) == 0) {
+			return super.getCep() * 0.10;
+		}
+	}
+}

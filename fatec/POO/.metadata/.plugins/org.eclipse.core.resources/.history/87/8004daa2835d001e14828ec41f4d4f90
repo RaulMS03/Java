@@ -1,0 +1,32 @@
+package interfaceEstudos;
+
+public class EDadoInvalido extends Exception {
+	private static final long serialVersionUID = 1L;
+
+public EDadoInvalido() {
+    super("Dado inválido!");
+  }
+  
+  public EDadoInvalido(String mensagem) {
+    super("Dado inválido!\n" + mensagem);
+  }
+}
+
+/*	Explicação:
+ * 
+ * 	A classe "EDadoInvalido" é uma classe que estende a classe "Exception", que significa que a classe "EDadoInvalido" é uma 
+ * 	classe de exceção personalizada que pode ser usada para representar erros especificos a dados invalidos.
+ * 
+ * 	
+ * 
+ */
+
+/********************************************************************
+ * Este arquivo � parte integrante do livro identificado abaixo e � *
+ * protegido pela legisla��o que trata dos direitos autorais.       *
+ *                                                                  *
+ * T�tulo:  Programa��o de Computadores em Java                     *
+ * Autor:   Rui Rossi dos Santos                                    *
+ * Editora: NovaTerra Editora e Distribuidora Ltda.                 *
+ * Ano:     2014                                                    *
+ ********************************************************************/

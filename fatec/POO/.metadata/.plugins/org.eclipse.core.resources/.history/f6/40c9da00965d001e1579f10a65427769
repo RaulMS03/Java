@@ -1,0 +1,7 @@
+package codigo1;
+
+public class VerificaProduto {
+	public static void main(String[] args) {
+	
+	}
+}

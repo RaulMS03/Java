@@ -1,0 +1,9 @@
+package aula3Sandra;
+
+public class TestaConta {
+	public static void main(String[] args) {
+		Conta con = new Conta();
+		
+		con.ImprimirConta();
+	}
+}

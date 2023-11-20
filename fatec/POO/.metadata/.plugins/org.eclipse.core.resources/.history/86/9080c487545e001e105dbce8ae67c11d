@@ -1,0 +1,5 @@
+package codigo2;
+
+public interface Vacina {
+	double calcularVacina();
+}

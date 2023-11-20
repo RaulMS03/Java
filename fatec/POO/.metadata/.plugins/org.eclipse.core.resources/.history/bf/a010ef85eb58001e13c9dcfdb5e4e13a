@@ -1,0 +1,9 @@
+package aula3Sandra;
+
+public class TestaPessoa {
+	public static void main(String[] args) {
+		Pessoas pe = new Pessoas();
+		
+		pe.ImprimirPessoas();
+	}
+}

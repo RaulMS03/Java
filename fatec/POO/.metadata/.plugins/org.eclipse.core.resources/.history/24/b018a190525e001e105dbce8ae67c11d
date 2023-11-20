@@ -1,0 +1,14 @@
+package codigo2;
+
+public class Gato extends Animal {
+	public double calcularVacina() {
+		if(super.getPeso() <= 10) {
+			return super.getPeso() * 0.10;
+ 		} else if (super.getPeso() > 10 && super.getPeso() <= 15) {
+ 			return super.getPeso() * 0.15;
+ 		} else if (super.getPeso() > 15 && super.getPeso() <= 25) {
+ 			return super.getPeso() * 0.20;
+ 		}
+		return super.getPeso();
+	}
+}

@@ -1,0 +1,60 @@
+package aula3Sandra;
+
+public class Conta {
+	//atributos 
+	private double saldoConta;
+	private String nomeConta;
+	private String cpfConta;
+	
+	//construtor 
+	public Conta() {
+		this.saldoConta = 2.987;
+		this.nomeConta = "Mano Sabotage";
+		this.cpfConta = "123.456.789-0";
+	}
+	
+	public Conta(double sal, String nm, String cpf) {
+		this.saldoConta = sal;
+		this.nomeConta = nm;
+		this.cpfConta = cpf;
+	}
+	
+	public Conta(Conta c) {
+		this.saldoConta = c.saldoConta;
+		this.nomeConta = c.nomeConta;
+		this.cpfConta = c.cpfConta;
+	}
+	
+	//get
+	public double getSaldoConta() {
+		return this.saldoConta;
+	}
+	
+	public String getNomeConta() {
+		return this.nomeConta;
+	}
+	
+	public String getCpfConta() {
+		return this.cpfConta;
+	}
+	
+	//set 
+	public void setSaldoConta(double saldo) {
+		this.saldoConta = saldo;
+	}
+	
+	public void setNomeConta(String nome) {
+		this.nomeConta = nome;
+	}
+	
+	public void setCpfConta(String cpf) {
+		this.cpfConta = cpf;
+	}
+	
+	public void ImprimirConta() {
+		System.out.println("Nome: " + getNomeConta());
+		System.out.println("Cpf: " + getCpfConta());
+		System.out.println("Saldo: " + getSaldoConta());
+	}
+	
+}

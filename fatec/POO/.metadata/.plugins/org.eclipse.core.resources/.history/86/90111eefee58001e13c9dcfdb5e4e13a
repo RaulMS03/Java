@@ -1,0 +1,12 @@
+package aula3Sandra;
+
+public class TestaPessoa {
+	public static void main(String[] args) {
+		Fisicas fi = new Fisicas();
+		Juridicas j = new Juridicas();
+		
+		
+		fi.ImprimirFisicas();
+		j.ImprimirJuridicas();
+	}
+}
